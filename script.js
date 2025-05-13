@@ -14,7 +14,8 @@ async function classifyImage() {
   resultDiv.innerText = "Memproses gambar...";
 
   try {
-    const response = await fetch("https://huggingface.co/spaces/calluu/klasifikasi-padi", {
+    const response = await fetch("https://calluu-klasifikasi-padi.hf.space/predict
+", {
       method: "POST",
       body: formData,
     });
