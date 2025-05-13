@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Klasifikasi Penyakit Padi</title>
+</head>
+<body>
+  <h1>Upload Gambar</h1>
+  <input type="file" id="fileInput" />
+  <button onclick="upload()">Mulai Klasifikasi</button>
+  <div id="result"></div>
+
+  <script>
+    async function upload() {
+      const fileInput = document.getElementById('fileInput');
+      const formData = new FormData();
+      formData.append('file', fileInput.files[0]);
+
+      const res = await fetch('https://huggingface.co/spaces/calluu/klasifikasi-padi', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await res.json();
+      document.getElementById('result').innerText =
+        `Label: ${data.label} | Confidence: ${data.confidence}`;
+    }
+  </script>
+</body>
+</html>
