@@ -3,41 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sistem Klasifikasi Penyakit Padi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <title>Klasifikasi Penyakit Padi</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <div class="logo">
-      <img src="/mnt/data/0792b150-8302-4b91-aafc-4ec2ac04b02d.png" alt="Logo" />
-      Dinas Pertanian
+      🌾 Dinas Pertanian
     </div>
     <nav>
-      <ul>
-        <li>Beranda</li>
-        <li>Penyakit Padi</li>
-        <li>Bantuan</li>
-      </ul>
+      <a href="#">Beranda</a>
+      <a href="#">Tentang</a>
+      <a href="#">Kontak</a>
     </nav>
   </header>
 
-  <main>
-    <div class="card">
-      <label for="imageInput" class="upload-box">
-        Klik di sini untuk unggah gambar
-        <input type="file" id="imageInput" accept="image/*" hidden onchange="previewImage()" />
-      </label>
-      <img id="imagePreview" class="preview-image" alt="Preview gambar" />
+  <main class="container">
+    <h1>Klasifikasi Penyakit Tanaman Padi</h1>
+    
+    <div class="upload-box">
+      <input type="file" id="imageInput" accept="image/*" />
+      <img id="preview" src="#" alt="Preview Gambar" style="display:none;" />
       <button onclick="classifyImage()">Mulai Klasifikasi</button>
-      <div id="result" class="result"></div>
+    </div>
+
+    <div id="result" class="result-card" style="display:none;">
+      <h2>Hasil Klasifikasi</h2>
+      <p><strong>Label:</strong> <span id="label">-</span></p>
+      <p><strong>Tingkat Keyakinan:</strong> <span id="confidence">-</span></p>
     </div>
   </main>
 
   <footer>
-    &copy; 2025 Sistem Klasifikasi Penyakit Padi - Dinas Pertanian Indonesia
+    © 2025 Dinas Pertanian. Semua hak dilindungi.
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
