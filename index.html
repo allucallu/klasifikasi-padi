@@ -3,26 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Klasifikasi Penyakit Padi</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Sistem Klasifikasi Penyakit Padi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <div class="logo">LOGO</div>
+    <div class="logo">
+      <img src="/mnt/data/0792b150-8302-4b91-aafc-4ec2ac04b02d.png" alt="Logo" />
+      Dinas Pertanian
+    </div>
     <nav>
       <ul>
-        <li class="active">Home</li>
-        <li>Penyakit padi</li>
+        <li>Beranda</li>
+        <li>Penyakit Padi</li>
         <li>Bantuan</li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <div class="upload-container">
+    <div class="card">
       <label for="imageInput" class="upload-box">
-        <span>Upload gambar</span>
-        <input type="file" id="imageInput" accept="image/*" onchange="previewImage()" hidden/>
+        Klik di sini untuk unggah gambar
+        <input type="file" id="imageInput" accept="image/*" hidden onchange="previewImage()" />
       </label>
       <img id="imagePreview" class="preview-image" alt="Preview gambar" />
       <button onclick="classifyImage()">Mulai Klasifikasi</button>
@@ -30,6 +36,8 @@
     </div>
   </main>
 
-  <script src="script.js"></script>
+  <footer>
+    &copy; 2025 Sistem Klasifikasi Penyakit Padi - Dinas Pertanian Indonesia
+  </footer>
 </body>
 </html>
