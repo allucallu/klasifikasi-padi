@@ -20,7 +20,8 @@ async function classifyImage() {
     });
 
     const data = await response.json();
-    resultDiv.innerText = "Hasil: " + data.result;
+    resultDiv.innerHTML = `<p><strong>Label:</strong> ${data.label}</p><p><strong>Tingkat Keyakinan:</strong> ${Math.round(data.confidence * 100)}%</p>`;
+
   } catch (error) {
     resultDiv.innerText = "Terjadi kesalahan. Coba lagi.";
     console.error(error);
