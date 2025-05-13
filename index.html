@@ -1,29 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Klasifikasi Penyakit Padi</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Upload Gambar</h1>
-  <input type="file" id="fileInput" />
-  <button onclick="upload()">Mulai Klasifikasi</button>
-  <div id="result"></div>
+  <div class="container">
+    <h1>Klasifikasi Penyakit Tanaman Padi 🌾</h1>
+    
+    <input type="file" id="imageInput" accept="image/*" />
+    <button onclick="classifyImage()">Mulai Klasifikasi</button>
+    
+    <div id="result" class="result"></div>
+  </div>
 
-  <script>
-    async function upload() {
-      const fileInput = document.getElementById('fileInput');
-      const formData = new FormData();
-      formData.append('file', fileInput.files[0]);
-
-      const res = await fetch('https://huggingface.co/spaces/calluu/klasifikasi-padi', {
-        method: 'POST',
-        body: formData
-      });
-
-      const data = await res.json();
-      document.getElementById('result').innerText =
-        `Label: ${data.label} | Confidence: ${data.confidence}`;
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
