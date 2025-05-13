@@ -7,14 +7,28 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Klasifikasi Penyakit Tanaman Padi 🌾</h1>
-    
-    <input type="file" id="imageInput" accept="image/*" />
-    <button onclick="classifyImage()">Mulai Klasifikasi</button>
-    
-    <div id="result" class="result"></div>
-  </div>
+  <header>
+    <div class="logo">LOGO</div>
+    <nav>
+      <ul>
+        <li class="active">Home</li>
+        <li>Penyakit padi</li>
+        <li>Bantuan</li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="upload-container">
+      <label for="imageInput" class="upload-box">
+        <span>Upload gambar</span>
+        <input type="file" id="imageInput" accept="image/*" onchange="previewImage()" hidden/>
+      </label>
+      <img id="imagePreview" class="preview-image" alt="Preview gambar" />
+      <button onclick="classifyImage()">Mulai Klasifikasi</button>
+      <div id="result" class="result"></div>
+    </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
