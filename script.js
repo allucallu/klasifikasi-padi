@@ -3,7 +3,7 @@ async function classifyImage() {
   const resultDiv = document.getElementById("result");
 
   if (!input.files[0]) {
-    resultDiv.innerText = "Silakan unggah gambar terlebih dahulu.";
+    resultDiv.innerText = "Silakan pilih gambar terlebih dahulu.";
     return;
   }
 
@@ -20,26 +20,10 @@ async function classifyImage() {
     });
 
     const data = await response.json();
-    resultDiv.innerHTML = `
-  <p><strong>Label:</strong> ${data.label}</p><p><strong>Tingkat Keyakinan:</strong> ${Math.round(data.confidence * 100)}%</p>`;
+    resultDiv.innerHTML = `<p><strong>Label:</strong> ${data.label}</p><p><strong>Tingkat Keyakinan:</strong> ${Math.round(data.confidence * 100)}%</p>`;
 
   } catch (error) {
-    resultDiv.innerText = "Terjadi kesalahan saat memproses gambar.";
+    resultDiv.innerText = "Terjadi kesalahan. Coba lagi.";
     console.error(error);
-  }
-}
-
-function previewImage() {
-  const input = document.getElementById("imageInput");
-  const preview = document.getElementById("preview");
-
-  const file = input.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      preview.src = e.target.result;
-      preview.style.display = "block";
-    };
-    reader.readAsDataURL(file);
   }
 }
