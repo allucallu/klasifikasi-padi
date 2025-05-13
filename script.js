@@ -21,10 +21,8 @@ async function classifyImage() {
 
     const data = await response.json();
     resultDiv.innerHTML = `
-      <h2>Hasil Klasifikasi</h2>
-      <p><strong>Label:</strong> ${data.result.label}</p>
-      <p><strong>Tingkat Keyakinan:</strong> ${data.result.confidence}%</p>
-    `;
+  <p><strong>Label:</strong> ${data.label}</p><p><strong>Tingkat Keyakinan:</strong> ${Math.round(data.confidence * 100)}%</p>`;
+
   } catch (error) {
     resultDiv.innerText = "Terjadi kesalahan saat memproses gambar.";
     console.error(error);
